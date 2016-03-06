@@ -4,22 +4,22 @@
 function nyanpiCallBack(volumeInfo){
   var soundEffetcs = {
         nya:function(){
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/cat.mp3')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/cat.mp3')).play();
         },
         dearin:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/dearin.wav')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/dearin.wav')).play();
         },
         mario:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/mario.wav')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/mario.wav')).play();
         },
         he:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/he.mp3')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/he.mp3')).play();
         },
         hokuto_atatata:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/hokuto_atatata.wav')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
         },
         hokuto_shindeiru:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/hokuto_shindeiru.wav')).play();
+          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_shindeiru.wav')).play();
         }
       },
       visualEffetcs = {
