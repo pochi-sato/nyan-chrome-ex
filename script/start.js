@@ -1,6 +1,9 @@
 var musics = {
   samba:function(){
     document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/samba.mp3')).play();
+    var script = document.createElement("script");
+    script.src = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/script/congra.js";
+    document.body.appendChild(script);
   },
   fox:function(){
     document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/fox.mp3')).play();
@@ -13,6 +16,9 @@ var musics = {
   },
   followme:function(){
     document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/followme.m4a')).play();
+    var script = document.createElement("script");
+    script.src = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/script/congra.js";
+    document.body.appendChild(script);
   },
   followmeLive:function(){
     document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/followmeLive.mp3')).play();

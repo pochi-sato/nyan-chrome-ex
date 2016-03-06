@@ -1,8 +1,13 @@
+/*div.room-state-switcher, div.frontpage-content-wrapper, div.room-wrapper, div.video-frame-wrapper, video-view[client="client"], video-view[client="localClient"] {*/
+    /*background: transparent !important;*/
+/*}*/
+
 div.information-page, .loading-animation, .connection-attempt, span, p{
 	display: none;
 }
 div.video-frame-wrapper{
 	width: 100% !important;
+	background: transparent !important;
 }
 div[vc-id]:first-child{
 	position: absolute;
@@ -22,9 +27,10 @@ div[vc-id]:nth-of-type(2){
 }*/
 div.video-wrapper{
 	margin: 0 0 0 0 !important;
+    background: transparent !important;
 }
 main {
-	background: black !important;
+    background: transparent !important;
 	padding: 0 0 0 0 !important;
 }
 main > *:not(.video-wrapper) {
