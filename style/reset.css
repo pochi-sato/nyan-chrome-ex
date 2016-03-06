@@ -1,6 +1,6 @@
-/*div.room-state-switcher, div.frontpage-content-wrapper, div.room-wrapper, div.video-frame-wrapper, video-view[client="client"], video-view[client="localClient"] {*/
-    /*background: transparent !important;*/
-/*}*/
+div.room-wrapper.in-room, div.room-state-switcher, div.room-wrapper, div.video-frame-wrapper, video-view[client="client"], video-view[client="localClient"] {
+    background: transparent !important;
+}
 
 div.information-page, .loading-animation, .connection-attempt, span, p{
 	display: none;

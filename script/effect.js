@@ -42,23 +42,23 @@ function nyanpiCallBack(volumeInfo){
       //soundEffetcs.he();
       break;
     case volume < 15:
-      visualEffetcs.snow(volume);
+      //visualEffetcs.snow(volume);
       //soundEffetcs.hokuto_shindeiru();
       break;
     case volume < 18:
-      visualEffetcs.snow(volume);
+      //visualEffetcs.snow(volume);
       //soundEffetcs.nya();
       break;
     case volume < 21:
-      visualEffetcs.snow(volume);
+      //visualEffetcs.snow(volume);
       //soundEffetcs.mario();
       break;
     case volume < 24:
-      visualEffetcs.snow(volume);
+      //visualEffetcs.snow(volume);
       //soundEffetcs.hokuto_atatata();
       break;
     case volume >= 24:
-      visualEffetcs.snow(volume);
+      //visualEffetcs.snow(volume);
       //soundEffetcs.dearin();
       break;
   }

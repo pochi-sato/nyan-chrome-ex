@@ -15,7 +15,7 @@ var musics = {
     document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/darthvader.mp3')).play();
   },
   followme:function(){
-    document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/followme.m4a')).play();
+    //document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/followme.m4a')).play();
     var script = document.createElement("script");
     script.src = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/script/congra.js";
     document.body.appendChild(script);

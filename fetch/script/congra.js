@@ -7,23 +7,39 @@ link2.href = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/sty
 document.body.appendChild(link);
 document.body.appendChild(link2);
 
-var div = document.createElement('div');
-div.id = 'nyan-bg';
-div.style.display = "block";
-div.style.width = window.innerWidth + 'px';
-div.style.height = window.innerHeight + 'px';
-div.style.backgroundImage = "url(https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/img/bg.png)";
-div.style.backgroundSize = "100%";
+document.body.style.width = window.innerWidth + "px !important";
+document.body.style.height = window.innerHeight + "px !important";
+document.body.style.background = 'url("https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/img/bg.png") 0 0 no-repeat';
+document.body.style.backgroundSize = "100% auto";
 
-function bgAppendChild(){
-  var main = document.getElementsByTagName("main")[0];
-  if(main) {
-    main.appendChild(div);
+// *** 下部のデコレーションデザイン
+var bottomDeco = document.createElement("div");
+bottomDeco.classList.add('content');
+var bottomChildDeco = document.createElement("div");
+bottomChildDeco.classList.add('box-with-text');
+var bottomText = document.createElement("div");
+bottomText.classList.add('text');
+bottomText.style.fontSize = "250px";
+bottomText.style.background = "none";
+
+bottomText.innerHTML = "CONGRA!";
+bottomChildDeco.appendChild(bottomText);
+bottomDeco.appendChild(bottomChildDeco);
+document.body.appendChild(bottomDeco);
+
+function bottomDecoStyle(){
+  var videoWrapper = document.querySelector('div.video-frame-wrapper');
+  if(videoWrapper){
+    setTimeout(function(){
+      bottomDeco.style.paddingTop = "500px";
+    }, 500);
   } else {
-    setTimeout(bgAppendChild, 500);
+    setTimeout(bottomDecoStyle, 300);
   }
 }
-bgAppendChild();
+bottomDecoStyle();
+
+// *** 下部のデコレーションデザイン ここまで
 
 (function() {
   var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
@@ -37,10 +53,23 @@ bgAppendChild();
   // canvas = document.getElementById("canvas");
   canvas = document.createElement("canvas");
   canvas.id = "congra-canvas";
-  document.body.appendChild(canvas);
+  function fubukiStyle(){
+    var videoWrapper = document.querySelector('video-view[client="client"]');
+    if(videoWrapper){
+      bottomDeco.style.paddingTop = videoWrapper.style.height;
+      videoWrapper.appendChild(canvas);
+    } else {
+      setTimeout(fubukiStyle, 300);
+    }
+  }
+  fubukiStyle();
+
+  //document.body.appendChild(canvas);
+  //setTimeout(function(){
+  //  document.body.appendChild(canvas);
+  //},10000);
 
   context = canvas.getContext("2d");
-  console.log(context);
 
   window.w = 0;
 
@@ -50,6 +79,7 @@ bgAppendChild();
     window.w = canvas.width = window.innerWidth;
     return window.h = canvas.height = window.innerHeight;
   };
+  resizeWindow();
 
   window.addEventListener('resize', resizeWindow, false);
 
