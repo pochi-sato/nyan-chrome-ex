@@ -1,0 +1,32 @@
+div.information-page, .loading-animation, .connection-attempt, span, p{
+	display: none;
+}
+div.video-frame-wrapper{
+	width: 100% !important;
+}
+div[vc-id]:first-child{
+	position: absolute;
+	top: 0 !important;
+	left: 0 !important;
+	width: 100%;
+	height: 100%;
+	background: black;
+	z-index: 1000;
+}
+div[vc-id]:nth-of-type(2){
+	display: none;
+}
+/*video-view[client="localClient"]{
+}*/
+/*video-view[client="client"]{
+}*/
+div.video-wrapper{
+	margin: 0 0 0 0 !important;
+}
+main {
+	background: black !important;
+	padding: 0 0 0 0 !important;
+}
+main > *:not(.video-wrapper) {
+	display: none;
+}

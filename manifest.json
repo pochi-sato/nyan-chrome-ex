@@ -1,0 +1,17 @@
+{
+  "name": "Nyan Theater",
+  "version": "0.7.0",
+  "manifest_version": 2,
+  "description": "for nyan bunch and 81",
+  "icons": {
+    "128": "img/nyancoco.jpg"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://appear.in/nyan_bunch*"],
+      "js": ["script/reset.js", "script/start.js", "script/effect.js", "script/snowparticle.smart.2.js", "script/rippleEffect.js", "script/jquery.min.js"],
+      "css": ["style/reset.css", "style/effect.css", "style/rippleEffect.css"],
+	  "run_at": "document_start"
+    }
+  ]
+}
