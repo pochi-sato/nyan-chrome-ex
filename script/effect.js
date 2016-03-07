@@ -58,14 +58,28 @@ function nyanpiCallBack(volumeInfo){
           samba:function(){
             var ueei = document.createElement('img');
             ueei.classList.add("trigger-effect-visual");
-            ueei.style.top = (window.innerHeight - 70) / (("" + Math.random()).substr(2,1) - 0);
-            ueei.style.left = (window.innerWidth - 100) / (("" + Math.random()).substr(2,1) - 0);
+            if((Math.random() + "").substr(2,1)-0 >= 8){
+              ueei.classList.add("trigger-effect-visual-1");
+            } else if((Math.random() + "").substr(2,1)-0 >= 6){
+              ueei.classList.add("trigger-effect-visual-2");
+            } else if((Math.random() + "").substr(2,1)-0 >= 3){
+              ueei.classList.add("trigger-effect-visual-3");
+            } else {
+              ueei.classList.add("trigger-effect-visual-4");
+            }
+            //ueei.style.top = Math.round((window.innerHeight - 70) / (("" + Math.random()).substr(2,1) - 0)) + "px !important";
+            //console.log("*****")
+            //console.log(Math.round((window.innerHeight - 70) / (("" + Math.random()).substr(2,1) - 0)))
+            //console.log("*****")
+            //ueei.style.left = Math.round((window.innerWidth - 100) / (("" + Math.random()).substr(2,1) - 0)) + "px !important";
             ueei.src = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/img/ueei.png";
             //document.querySelector('video-view[client="client"]').appendChild(ueei);
-            document.querySelector("main").appendChild(ueei);
+            //document.querySelector("main").appendChild(ueei);
+            ueei.style.display = "block";
+            document.body.appendChild(ueei);
             setTimeout(function(){
-              ueei.display = "none";
-            });
+              ueei.style.display = "none";
+            }, 1800);
           },
           fox: function(){},
           abarenbo: function(){},

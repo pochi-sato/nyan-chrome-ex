@@ -7,8 +7,24 @@
 }
 
 .trigger-effect-visual {
-    position: absolute;
-    width: 100px;
-    height: 70px;
-    display: block;
+    position: absolute !important;
+    width: 400px !important;
+    height: 320px !important;
+}
+
+.trigger-effect-visual.trigger-effect-visual-1 {
+    top: 50px !important;
+    left: 50px !important;
+}
+.trigger-effect-visual.trigger-effect-visual-2 {
+    top: 80px !important;
+    right: 60px !important;
+}
+.trigger-effect-visual.trigger-effect-visual-3 {
+    bottom: 80px !important;
+    left: 70px !important;
+}
+.trigger-effect-visual.trigger-effect-visual-4 {
+    bottom: 65px !important;
+    right: 80px !important;
 }
