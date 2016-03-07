@@ -42,17 +42,30 @@ bottomDecoStyle();
 // *** 下部のデコレーションデザイン ここまで
 
 (function() {
-  var COLORS, Confetti, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
+  var COLORS, NUM_CONFETTI, PI_2, canvas, confetti, context, drawCircle, i, range, resizeWindow, xpos;
 
-  NUM_CONFETTI = 200;
+  window.NYAN = {
+    numConfetti : 50,
+    colors : [[22, 22, 22], [100, 100, 100], [200, 200, 200], [244, 244, 244], [248, 248, 248]],
+    pi2 : 2 * Math.PI
+  };
+  NUM_CONFETTI = window.NYAN.numConfetti;
+  COLORS = window.NYAN.colors;
+  PI_2 = window.NYAN.pi2;
 
-  COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
+  //NUM_CONFETTI = 200;
+  //COLORS = [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]];
+  //PI_2 = 2 * Math.PI;
 
-  PI_2 = 2 * Math.PI;
 
   // canvas = document.getElementById("canvas");
-  canvas = document.createElement("canvas");
-  canvas.id = "congra-canvas";
+  var oldCanvas = document.getElementById("congra-canvas");
+  if(oldCanvas) {
+    canvas = oldCanvas;
+  } else {
+    canvas = document.createElement("canvas");
+    canvas.id = "congra-canvas";
+  }
   function fubukiStyle(){
     var videoWrapper = document.querySelector('video-view[client="client"]');
     if(videoWrapper){

@@ -1,34 +1,79 @@
 // function stringifyDefineObject(name, obj){
 // 	return 'var ' + name + ' = ' + JSON.stringify(obj);
 // }
+function getSceneName(){
+  var sceneQuery = document.location.search.substr(1).split('scene=')[1];
+  return sceneQuery ? sceneQuery.split('&')[0] : 0;
+}
+
 function nyanpiCallBack(volumeInfo){
-  var soundEffetcs = {
-        nya:function(){
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/cat.mp3')).play();
+  var volumeEffect = {
+        sounds: {
+          nya:function(){
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/cat.mp3')).play();
+          },
+          dearin:function() {
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/dearin.wav')).play();
+          },
+          mario:function() {
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/mario.wav')).play();
+          },
+          he:function() {
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/he.mp3')).play();
+          },
+          hokuto_atatata:function() {
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
+          },
+          hokuto_shindeiru:function() {
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_shindeiru.wav')).play();
+          }
         },
-        dearin:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/dearin.wav')).play();
-        },
-        mario:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/mario.wav')).play();
-        },
-        he:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/he.mp3')).play();
-        },
-        hokuto_atatata:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
-        },
-        hokuto_shindeiru:function() {
-          document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_shindeiru.wav')).play();
+        visuals: {
+          snow:function(volume){
+            nyanSnow(volume);
+          },
+          egirls:function() {
+          },
+          fubuki:function(volume){
+            window.NYAN = {
+              numConfetti : volume*10,
+              colors : [[85, 71, 106], [174, 61, 99], [219, 56, 83], [244, 92, 68], [248, 182, 70]],
+              pi2 : 2 * Math.PI
+            };
+            //window.Confetti.draw();
+            //window.step();
+          }
         }
       },
-      visualEffetcs = {
-        snow:function(volume){
-          nyanSnow(volume);
+      triggerEffect = {
+        sounds: {
+          samba: function(){
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
+          },
+          fox: function(){},
+          abarenbo: function(){},
+          darthvader: function(){}
         },
-        egirls:function() {
+        visuals: {
+          samba:function(){
+            var ueei = document.createElement('img');
+            ueei.classList.add("trigger-effect-visual");
+            ueei.style.top = (window.innerHeight - 70) / (("" + Math.random()).substr(2,1) - 0);
+            ueei.style.left = (window.innerWidth - 100) / (("" + Math.random()).substr(2,1) - 0);
+            ueei.src = "https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/img/ueei.png";
+            //document.querySelector('video-view[client="client"]').appendChild(ueei);
+            document.querySelector("main").appendChild(ueei);
+            setTimeout(function(){
+              ueei.display = "none";
+            });
+          },
+          fox: function(){},
+          abarenbo: function(){},
+          darthvader: function(){}
         }
       },
+      triggerCount = volumeInfo.trigger,
+      scene = getSceneName();
       volume = volumeInfo.volume;
   if(volumeInfo.status === "ended"){
     console.log('ended!!!')
@@ -39,28 +84,33 @@ function nyanpiCallBack(volumeInfo){
   console.log(volume)
   switch (true) {
     case volume < 10:
-      //soundEffetcs.he();
+      //volumeEffectSounds.he();
       break;
     case volume < 15:
-      //visualEffetcs.snow(volume);
-      //soundEffetcs.hokuto_shindeiru();
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.hokuto_shindeiru();
       break;
     case volume < 18:
-      //visualEffetcs.snow(volume);
-      //soundEffetcs.nya();
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.nya();
       break;
     case volume < 21:
-      //visualEffetcs.snow(volume);
-      //soundEffetcs.mario();
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.mario();
       break;
     case volume < 24:
-      //visualEffetcs.snow(volume);
-      //soundEffetcs.hokuto_atatata();
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.hokuto_atatata();
       break;
     case volume >= 24:
-      //visualEffetcs.snow(volume);
-      //soundEffetcs.dearin();
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.dearin();
       break;
+  }
+  for(var i = 0; i < triggerCount; i++){
+    console.log('出た=====================================')
+    triggerEffect.sounds[scene]();
+    triggerEffect.visuals[scene]();
   }
 }
 
@@ -76,7 +126,7 @@ function addGlobalScope(functions) {
 
 window.addEventListener('load', function(){
   // addGlobalScope([stringifyDefineObject('decorations', decorations), nyanpiCallBack]);
-  addGlobalScope([nyanpiCallBack]);
+  addGlobalScope([nyanpiCallBack,getSceneName]);
 
   var script = document.createElement("script");
   script.src = "https://nyan.jsoizo.com/effects?callback=nyanpiCallBack&time=" + (+new Date());
