@@ -9,7 +9,7 @@
   "content_scripts": [
     {
       "matches": ["https://appear.in/nyan_bunch*"],
-      "js": ["script/start.js", "script/effect.js"],
+      "js": ["script/start.js", "script/effect.js", "script/snowparticle.smart.2.js"],
       "css": ["style/reset.css", "style/effect.css"],
 	  "run_at": "document_start"
     }

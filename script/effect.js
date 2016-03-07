@@ -111,6 +111,7 @@ function nyanpiCallBack(volumeInfo){
     //  //volumeEffectSounds.nya();
     //  break;
     case volume < 20:
+      volumeEffect.visuals.snow(volume);
       //volumeEffectVisuals.fubuki(volume);
       //volumeEffectSounds.mario();
       document.body.querySelector("body>div.content>div>div").style.fontSize = "1px !important";
@@ -120,11 +121,13 @@ function nyanpiCallBack(volumeInfo){
     //  //volumeEffectSounds.hokuto_atatata();
       //break;
     case volume >= 25:
+      volumeEffect.visuals.snow(volume);
       //volumeEffectVisuals.fubuki(volume);
       //volumeEffectSounds.dearin();
       document.body.querySelector("body>div.content>div>div").style.fontSize = "100px !important";
       break;
     case volume >= 29:
+      volumeEffect.visuals.snow(volume);
       //volumeEffectVisuals.fubuki(volume);
       //volumeEffectSounds.dearin();
       document.body.querySelector("body>div.content>div>div").style.fontSize = "250px !important";
