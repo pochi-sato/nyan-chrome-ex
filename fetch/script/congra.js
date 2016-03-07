@@ -27,11 +27,24 @@ bottomChildDeco.appendChild(bottomText);
 bottomDeco.appendChild(bottomChildDeco);
 document.body.appendChild(bottomDeco);
 
+function resetDarkBG(){
+  var actionButton = document.getElementsByClassName("action-button");
+  var videoBox = document.getElementsByClassName("video-box");
+  for(var i = 0, len = actionButton.length; i < len; i++){
+    actionButton[i].style.background = "none";
+  }
+  for(var i = 0, len = videoBox.length; i < len; i++){
+    videoBox[i].style.background = "none";
+    videoBox[i].style.boxShadow = "none";
+  }
+}
+
 function bottomDecoStyle(){
   var videoWrapper = document.querySelector('div.video-frame-wrapper');
   if(videoWrapper){
     setTimeout(function(){
       bottomDeco.style.paddingTop = "500px";
+      resetDarkBG();
     }, 500);
   } else {
     setTimeout(bottomDecoStyle, 300);

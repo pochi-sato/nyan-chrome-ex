@@ -1,3 +1,9 @@
+.action-button, .video-box {
+	background: none !important;
+	boxShadow: none !important;
+}
+
+
 div.room-wrapper.in-room, div.room-state-switcher, div.room-wrapper, div.video-frame-wrapper, video-view[client="client"], video-view[client="localClient"] {
     background: transparent !important;
 }
