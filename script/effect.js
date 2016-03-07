@@ -48,7 +48,8 @@ function nyanpiCallBack(volumeInfo){
       triggerEffect = {
         sounds: {
           samba: function(){
-            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
+            //document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/hokuto_atatata.wav')).play();
+            document.body.appendChild(new Audio('https://s3-ap-northeast-1.amazonaws.com/pochi-sozai/nyan-bunch/audio/ueei.mp3')).play();
           },
           fox: function(){},
           abarenbo: function(){},
@@ -97,28 +98,36 @@ function nyanpiCallBack(volumeInfo){
   console.log('started!!!')
   console.log(volume)
   switch (true) {
-    case volume < 10:
-      //volumeEffectSounds.he();
-      break;
-    case volume < 15:
-      //volumeEffectVisuals.fubuki(volume);
-      //volumeEffectSounds.hokuto_shindeiru();
-      break;
-    case volume < 18:
-      //volumeEffectVisuals.fubuki(volume);
-      //volumeEffectSounds.nya();
-      break;
-    case volume < 21:
+    //case volume < 10:
+    //
+    //  //volumeEffectSounds.he();
+    //  break;
+    //case volume < 15:
+    //  //volumeEffectVisuals.fubuki(volume);
+    //  //volumeEffectSounds.hokuto_shindeiru();
+    //  break;
+    //case volume < 18:
+    //  //volumeEffectVisuals.fubuki(volume);
+    //  //volumeEffectSounds.nya();
+    //  break;
+    case volume < 20:
       //volumeEffectVisuals.fubuki(volume);
       //volumeEffectSounds.mario();
+      document.body.querySelector("body>div.content>div>div").style.fontSize = "1px !important";
       break;
-    case volume < 24:
-      //volumeEffectVisuals.fubuki(volume);
-      //volumeEffectSounds.hokuto_atatata();
-      break;
-    case volume >= 24:
+    //case volume < 24:
+    //  //volumeEffectVisuals.fubuki(volume);
+    //  //volumeEffectSounds.hokuto_atatata();
+      //break;
+    case volume >= 25:
       //volumeEffectVisuals.fubuki(volume);
       //volumeEffectSounds.dearin();
+      document.body.querySelector("body>div.content>div>div").style.fontSize = "100px !important";
+      break;
+    case volume >= 29:
+      //volumeEffectVisuals.fubuki(volume);
+      //volumeEffectSounds.dearin();
+      document.body.querySelector("body>div.content>div>div").style.fontSize = "250px !important";
       break;
   }
   for(var i = 0; i < triggerCount; i++){
